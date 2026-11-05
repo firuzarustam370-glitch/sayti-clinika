@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HanziQuest — Битва с Боссом: Чайный Мастер</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Serif+SC:wght@600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#d73839",
+            "surface-container-highest": "#dee2ec",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#6cf8bb",
+            "on-primary-container": "#fffbff",
+            "on-background": "#171c23",
+            "on-error": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#ffb3ad",
+            "outline-variant": "#e3bebb",
+            "tertiary-fixed": "#ffddb8",
+            "tertiary-container": "#a36700",
+            "surface-bright": "#f8f9ff",
+            "surface-variant": "#dee2ec",
+            "secondary-fixed": "#6ffbbe",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#5b403e",
+            "inverse-surface": "#2c3138",
+            "outline": "#8f706d",
+            "on-primary-fixed": "#410004",
+            "on-secondary-container": "#00714d",
+            "on-tertiary-fixed-variant": "#653e00",
+            "surface-container": "#eaeef8",
+            "on-secondary-fixed-variant": "#005236",
+            "inverse-on-surface": "#edf1fb",
+            "tertiary-fixed-dim": "#ffb95f",
+            "secondary-fixed-dim": "#4edea3",
+            "error": "#ba1a1a",
+            "surface-container-high": "#e4e8f2",
+            "primary-fixed": "#ffdad7",
+            "on-tertiary-container": "#fffbff",
+            "tertiary": "#825100",
+            "secondary": "#006c49",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-dim": "#d6dae4",
+            "primary": "#b41c23",
+            "surface": "#f8f9ff",
+            "on-surface": "#171c23",
+            "on-secondary-fixed": "#002113",
+            "background": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#930013",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#ffb3ad",
+            "on-error-container": "#93000a",
+            "surface-tint": "#b81f26",
+            "surface-container-low": "#f0f4fd"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem"
+          },
+          fontFamily: {
+            "display-hero": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "hanzi-display": ["'Noto Serif SC'", "'PingFang SC'", "'Noto Sans SC'", "serif"],
+            "body-lg": ["Be Vietnam Pro"],
+            "pinyin-annotation": ["Be Vietnam Pro"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Be Vietnam Pro"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "hanzi-card": ["'Noto Serif SC'", "'PingFang SC'", "'Noto Sans SC'", "serif"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "display-hero": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }],
+            "hanzi-display": ["64px", { lineHeight: "72px", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "pinyin-annotation": ["16px", { lineHeight: "22px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "0em", fontWeight: "700" }],
+            "body-md": ["15px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "hanzi-card": ["40px", { lineHeight: "48px", fontWeight: "600" }],
+            "display-hero-mobile": ["36px", { lineHeight: "44px", letterSpacing: "-0.01em", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .card-tactile-base {
+      box-shadow: 0 4px 0 0 #dee2ec;
+      transition: all 0.12s ease-out;
+    }
+    .card-tactile-base:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #dee2ec;
+    }
+    .card-tactile-selected {
+      box-shadow: 0 4px 0 0 #d73839;
+      transform: translateY(-1px);
+    }
+    .card-tactile-matched {
+      box-shadow: 0 4px 0 0 #00714d;
+    }
+    .btn-tactile-strike {
+      box-shadow: 0 5px 0 0 #930013;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-strike:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #930013;
+    }
+    .watermark-pattern {
+      background-image: radial-gradient(#dee2ec 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 0.95; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+    .steam-pulse {
+      animation: subtlePulse 3s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Main Mobile App Shell (390px - 430px Responsive Canvas) -->
+<main class="w-full max-w-[430px] min-h-screen flex flex-col bg-surface shadow-2xl relative border-x border-surface-container pb-8 select-none">
+<!-- Top Decorative Atmosphere Layer -->
+<div class="absolute top-0 left-0 right-0 h-44 bg-gradient-to-b from-primary-fixed/30 via-surface-container-low/40 to-transparent pointer-events-none watermark-pattern"></div>
+<!-- 1. Top Header & Stakes (Mission Bar) -->
+<header class="relative z-10 px-4 pt-3 pb-2 flex items-center justify-between border-b border-surface-container-highest/60 bg-surface/90 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<button aria-label="Пауза боя" class="w-9 h-9 rounded-xl bg-surface-container-lowest border-2 border-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary active:translate-y-0.5 transition-transform duration-100 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">pause</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold flex items-center gap-1">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-ping"></span>
+            Босс главы II
+          </span>
+<span class="font-headline-md text-[13px] leading-tight text-on-surface font-extrabold tracking-tight">
+            Чайный Мастер · 决战茶尊
+          </span>
+</div>
+</div>
+<!-- Player Vitals: Hearts & Gold -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-full border border-surface-container shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">5</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-2.5 py-1 rounded-full border border-surface-container shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-label-md text-label-md font-bold text-tertiary">165</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Boss Arena Canvas -->
+<div class="flex-1 px-4 pt-3 flex flex-col gap-3 relative z-10">
+<!-- 2. Boss Status HUD (Tea Master: Lu Yu's Legacy) -->
+<section class="bg-surface-container-lowest rounded-xl p-3.5 border-2 border-surface-container relative shadow-sm overflow-hidden">
+<!-- Background Seal Motif -->
+<div class="absolute -right-3 -top-3 w-28 h-28 opacity-[0.06] select-none pointer-events-none flex items-center justify-center font-hanzi-display text-[84px] text-primary font-serif">
+          茶
+        </div>
+<div class="flex items-start gap-3">
+<!-- Boss Imperial Chop Seal / Portrait -->
+<div class="relative flex-shrink-0 steam-pulse">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-br from-primary via-primary-container to-primary-container flex flex-col items-center justify-center border-2 border-primary-fixed shadow-md text-on-primary">
+<span class="font-hanzi-display text-[26px] leading-none font-bold text-white drop-shadow">陸羽</span>
+<span class="text-[9px] uppercase tracking-widest font-label-sm text-primary-fixed opacity-95">Святой Чая</span>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-surface-container-lowest border-2 border-primary rounded-full px-1 py-0.2 shadow text-[9px] font-bold text-primary flex items-center">
+              Lv.12
+            </div>
+</div>
+<!-- Boss Identity & Stance -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 truncate">
+<h1 class="font-headline-md text-headline-md text-on-surface truncate">Мастер Лу</h1>
+<span class="bg-primary-fixed text-on-primary-fixed text-[11px] font-label-sm px-1.5 py-0.5 rounded font-bold">Фаза 2</span>
+</div>
+<div class="flex items-center gap-1 bg-secondary-fixed/50 text-on-secondary-fixed-variant px-2 py-0.5 rounded-full text-[11px] font-label-sm font-bold">
+<span class="material-symbols-outlined text-[13px] text-secondary">shield</span>
+                Гармония
+              </div>
+</div>
+<p class="font-body-md text-[13px] text-on-surface-variant truncate">
+              «Танец Кипящего Чайника» · 沸水之势
+            </p>
+<!-- Boss HP Progress Bar -->
+<div class="mt-2">
+<div class="flex justify-between items-center text-[12px] font-label-sm mb-1">
+<span class="text-on-surface-variant font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">swords</span>
+                  Стойкость мастера:
+                </span>
+<span class="font-bold text-primary font-label-md">1,850 / 3,000 HP (62%)</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden p-0.5 border border-surface-container-highest">
+<div class="h-full rounded-full bg-gradient-to-r from-primary via-primary-container to-secondary-fixed-dim transition-all duration-300 relative" style="width: 62%;">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tension Mechanic: Boiling Kettle Timer & Combo Row -->
+<div class="mt-3 pt-2.5 border-t border-surface-container flex items-center justify-between gap-2">
+<!-- Boiling Countdown -->
+<div class="flex items-center gap-2 bg-primary-fixed/40 text-on-primary-fixed px-2.5 py-1 rounded-lg">
+<span class="material-symbols-outlined text-[17px] text-primary animate-bounce">local_cafe</span>
+<span class="font-label-sm text-label-sm font-bold">До кипения: <span class="text-primary font-extrabold">00:24</span></span>
+</div>
+<!-- Combo Multiplier Badge -->
+<div class="flex items-center gap-1 bg-surface-container-high px-2.5 py-1 rounded-lg border border-surface-container-highest">
+<span class="material-symbols-outlined text-[15px] text-tertiary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Комбо: <span class="text-primary font-bold">x3</span></span>
+<span class="text-[10px] text-secondary font-bold">(+250 XP)</span>
+</div>
+</div>
+</section>
+<!-- 3. The Boss Riddle Dialogue Balloon -->
+<section class="relative bg-surface-container-low rounded-xl p-3 border border-outline-variant/60 flex items-start gap-2.5 shadow-sm">
+<div class="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">format_quote</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-[13px] leading-snug text-on-surface font-medium">
+            «Ты держишь чашу уверенно, ученик. Но различишь ли истинный благородный настой? Соедини верную пару знаков!»
+          </p>
+<div class="mt-1 flex items-center gap-2 text-[11px] font-label-sm text-on-surface-variant">
+<span class="font-bold text-primary">Цель раунда:</span> Распознай Красный Чай для атаки ци.
+          </div>
+</div>
+</section>
+<!-- 4. Battle Matching Grid / Rapid Response Cards -->
+<section class="flex flex-col gap-2">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">grid_view</span>
+            Скрижали соответствия (2 из 4 пар)
+          </span>
+<span class="font-label-sm text-[11px] text-secondary font-bold bg-secondary-fixed/40 px-2 py-0.5 rounded-full">
+            Удар готов!
+          </span>
+</div>
+<!-- 2x3 Matrix of Hanzi & Translation Cards -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card 1: Matched (Russian) -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-3 card-tactile-matched flex flex-col justify-between min-h-[96px] bg-secondary-fixed/10 relative">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-secondary uppercase">Русский</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="my-auto text-center">
+<span class="font-headline-md text-[15px] font-bold text-on-surface">Зелёный чай</span>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-label-sm text-secondary font-bold">Связано ✓</span>
+</div>
+</div>
+<!-- Card 2: Matched (Hanzi) -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-3 card-tactile-matched flex flex-col justify-between min-h-[96px] bg-secondary-fixed/10 relative">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-secondary uppercase">Иероглифы</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="my-auto text-center">
+<div class="font-hanzi-card text-[26px] leading-tight text-on-surface font-semibold">绿茶</div>
+<div class="font-pinyin-annotation text-[12px] text-secondary font-semibold">lǜchá</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-label-sm text-secondary font-bold">+350 HP</span>
+</div>
+</div>
+<!-- Card 3: Selected Active (Russian) -->
+<div class="bg-primary-fixed/20 border-2 border-primary rounded-xl p-3 card-tactile-selected flex flex-col justify-between min-h-[96px] relative ring-2 ring-primary/20">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-primary uppercase">Выбрано</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</div>
+<div class="my-auto text-center">
+<span class="font-headline-md text-[15px] font-bold text-primary">Красный чай</span>
+<div class="text-[11px] text-on-surface-variant font-medium">(Черный чай)</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-label-sm text-primary font-bold">Ожидает знак</span>
+</div>
+</div>
+<!-- Card 4: Selected Active Target (Hanzi - Target Match) -->
+<div class="bg-primary-fixed/20 border-2 border-primary rounded-xl p-3 card-tactile-selected flex flex-col justify-between min-h-[96px] relative ring-2 ring-primary/20">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-primary uppercase">Иероглифы</span>
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="my-auto text-center">
+<div class="font-hanzi-card text-[28px] leading-tight text-primary font-bold">红茶</div>
+<div class="font-pinyin-annotation text-[12px] text-primary font-bold">hóngchá</div>
+</div>
+<div class="text-right">
+<span class="text-[10px] font-label-sm text-primary font-bold">Связка активна!</span>
+</div>
+</div>
+<!-- Card 5: Unselected Available (Russian) -->
+<div class="bg-surface-container-lowest border-2 border-surface-container rounded-xl p-3 card-tactile-base flex flex-col justify-between min-h-[96px] cursor-pointer hover:border-outline">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-on-surface-variant uppercase">Посуда</span>
+<span class="material-symbols-outlined text-[14px] text-outline">touch_app</span>
+</div>
+<div class="my-auto text-center">
+<span class="font-headline-md text-[15px] font-bold text-on-surface">Чайник</span>
+</div>
+<div class="text-left text-[10px] text-on-surface-variant font-medium">Радикал: 缶 / 瓦</div>
+</div>
+<!-- Card 6: Unselected Available (Hanzi) -->
+<div class="bg-surface-container-lowest border-2 border-surface-container rounded-xl p-3 card-tactile-base flex flex-col justify-between min-h-[96px] cursor-pointer hover:border-outline">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-[11px] font-bold text-on-surface-variant uppercase">Иероглифы</span>
+<span class="material-symbols-outlined text-[14px] text-outline">translate</span>
+</div>
+<div class="my-auto text-center">
+<div class="font-hanzi-card text-[26px] leading-tight text-on-surface font-semibold">茶壶</div>
+<div class="font-pinyin-annotation text-[12px] text-on-surface-variant font-medium">cháhú</div>
+</div>
+<div class="text-right text-[10px] text-on-surface-variant">2 черты</div>
+</div>
+</div>
+</section>
+<!-- 5. Player Battle Actions & Power-ups (Qi Artifacts) -->
+<section class="mt-1">
+<div class="flex justify-between items-center mb-1.5 px-1">
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">
+            Свитки Ци &amp; Талисманы
+          </span>
+<span class="text-[11px] font-label-sm text-tertiary font-bold">3 свитка в сумке</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Scroll 1: Radical Hint -->
+<button class="bg-surface-container-lowest border-2 border-surface-container rounded-xl p-2 flex flex-col items-center justify-center gap-1 active:scale-[0.97] transition-all text-center group shadow-sm" type="button">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed/60 flex items-center justify-center text-tertiary group-hover:bg-tertiary-fixed">
+<span class="material-symbols-outlined text-[17px]">lightbulb</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-on-surface leading-tight">Озарение</span>
+<span class="text-[9px] text-on-surface-variant leading-none">1 свиток</span>
+</button>
+<!-- Scroll 2: Combo Shield -->
+<button class="bg-surface-container-lowest border-2 border-secondary/40 rounded-xl p-2 flex flex-col items-center justify-center gap-1 active:scale-[0.97] transition-all text-center relative shadow-sm" type="button">
+<span class="absolute -top-1.5 -right-1 bg-secondary text-white text-[8px] font-bold px-1.5 py-0.2 rounded-full">АКТИВЕН</span>
+<div class="w-8 h-8 rounded-full bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[17px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-secondary leading-tight">Оберег комбо</span>
+<span class="text-[9px] text-secondary font-medium leading-none">Спасет комбо</span>
+</button>
+<!-- Scroll 3: Kettle Freeze -->
+<button class="bg-surface-container-lowest border-2 border-surface-container rounded-xl p-2 flex flex-col items-center justify-center gap-1 active:scale-[0.97] transition-all text-center group shadow-sm" type="button">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant group-hover:bg-primary-fixed">
+<span class="material-symbols-outlined text-[17px]">ac_unit</span>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-on-surface leading-tight">Лед пара</span>
+<span class="text-[9px] text-on-surface-variant leading-none">+15 сек</span>
+</button>
+</div>
+</section>
+<!-- 6. Primary Thumb-friendly Battle Action Button -->
+<div class="mt-2 pt-1 flex flex-col gap-2">
+<button class="w-full bg-primary hover:bg-primary-container text-white py-3.5 px-4 rounded-xl font-headline-md text-[17px] font-extrabold flex items-center justify-center gap-2 btn-tactile-strike tracking-wide uppercase shadow-lg" type="button">
+<span class="material-symbols-outlined text-[22px]">swords</span>
+<span>Нанести удар: «红茶» (Красный чай)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-2 text-center text-[11px] font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Точный удар нанесет <span class="font-bold text-primary">500 урона</span> стойкости Чайного Мастера</span>
+</div>
+</div>
+</div>
+<!-- Quick Scholar Stamp Seal (Authentic Ink Decoration in footer) -->
+<footer class="mt-4 px-6 flex items-center justify-between text-[11px] font-label-sm text-on-surface-variant border-t border-surface-container pt-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded border border-primary/40 text-primary font-hanzi-display text-[11px] flex items-center justify-center font-bold">
+          印
+        </span>
+<span>Печать испытания: Чайный Путь (茶道)</span>
+</div>
+<div class="font-bold text-primary">
+        Уровень 7 · Ученик
+      </div>
+</footer>
+</main>
+</body></html>

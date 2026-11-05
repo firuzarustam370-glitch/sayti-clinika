@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HanziQuest - Round 3: Еда и Напитки</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#dee2ec",
+            "on-error-container": "#93000a",
+            "on-surface": "#171c23",
+            "outline-variant": "#e3bebb",
+            "on-tertiary-fixed": "#2a1700",
+            "secondary-container": "#6cf8bb",
+            "on-secondary-fixed": "#002113",
+            "on-primary-fixed": "#410004",
+            "inverse-on-surface": "#edf1fb",
+            "on-primary-container": "#fffbff",
+            "secondary-fixed": "#6ffbbe",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface": "#f8f9ff",
+            "error": "#ba1a1a",
+            "background": "#f8f9ff",
+            "tertiary-fixed": "#ffddb8",
+            "tertiary": "#825100",
+            "on-tertiary-container": "#fffbff",
+            "surface-container": "#eaeef8",
+            "inverse-primary": "#ffb3ad",
+            "surface-container-low": "#f0f4fd",
+            "surface-tint": "#b81f26",
+            "inverse-surface": "#2c3138",
+            "on-primary": "#ffffff",
+            "primary": "#b41c23",
+            "surface-variant": "#dee2ec",
+            "primary-fixed": "#ffdad7",
+            "secondary-fixed-dim": "#4edea3",
+            "error-container": "#ffdad6",
+            "secondary": "#006c49",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-surface-variant": "#5b403e",
+            "surface-container-high": "#e4e8f2",
+            "primary-container": "#d73839",
+            "on-secondary": "#ffffff",
+            "tertiary-container": "#a36700",
+            "on-background": "#171c23",
+            "on-secondary-container": "#00714d",
+            "on-secondary-fixed-variant": "#005236",
+            "outline": "#8f706d",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#930013",
+            "surface-container-lowest": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#ffb3ad",
+            "surface-dim": "#d6dae4"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Be Vietnam Pro"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "hanzi-card": ["\"system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif\""],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "hanzi-display": ["\"system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif\""],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "pinyin-annotation": ["Be Vietnam Pro"],
+            "body-md": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "hanzi-card": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "hanzi-display": ["64px", { "lineHeight": "72px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "pinyin-annotation": ["16px", { "lineHeight": "22px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    /* Tactile Neo-Heritage 3D Button and Tile Mechanics */
+    .tactile-tile-idle {
+      box-shadow: 0 3px 0 0 #dee2ec;
+      transition: all 0.12s ease-in-out;
+    }
+    .tactile-tile-idle:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #dee2ec;
+    }
+    
+    .tactile-tile-selected {
+      box-shadow: 0 3px 0 0 #e3bebb;
+      transform: translateY(-1px);
+    }
+    .tactile-tile-selected:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #e3bebb;
+    }
+
+    .tactile-btn-primary {
+      box-shadow: 0 4px 0 0 #930013;
+      transition: all 0.12s ease-in-out;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #930013;
+    }
+
+    .tactile-btn-secondary {
+      box-shadow: 0 3px 0 0 #dee2ec;
+      transition: all 0.12s ease-in-out;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #dee2ec;
+    }
+
+    /* Subtle calligraphy grid background texture */
+    .bg-rice-paper-grid {
+      background-color: #faf8f5;
+      background-image: 
+        radial-gradient(#e3bebb 0.75px, transparent 0.75px),
+        radial-gradient(#dee2ec 0.75px, #faf8f5 0.75px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+
+    /* Pulse Glow Keyframes */
+    @keyframes heart-pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(215, 56, 57, 0.4)); }
+      50% { transform: scale(1.08); filter: drop-shadow(0 0 6px rgba(215, 56, 57, 0.8)); }
+    }
+    .animate-heart-pulse {
+      animation: heart-pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes golden-aura {
+      0%, 100% { box-shadow: 0 0 10px -2px rgba(245, 158, 11, 0.35), 0 2px 4px 0 rgba(130, 81, 0, 0.1); }
+      50% { box-shadow: 0 0 18px 2px rgba(245, 158, 11, 0.65), 0 2px 6px 0 rgba(130, 81, 0, 0.2); }
+    }
+    .animate-golden-aura {
+      animation: golden-aura 2.6s infinite ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Shell (Constraint: 412px max for mobile game immersion) -->
+<main class="w-full max-w-[420px] min-h-screen bg-rice-paper-grid flex flex-col justify-between shadow-2xl relative border-x border-outline-variant/30">
+<!-- Top Sticky Header Area -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md px-4 pt-3 pb-3 border-b border-outline-variant/40">
+<!-- Top Action & Resource Counter Bar -->
+<div class="flex items-center justify-between gap-2">
+<!-- Exit Navigation Button -->
+<button aria-label="Закрыть" class="w-9 h-9 flex items-center justify-center rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-body-lg font-bold" data-icon="close">close</span>
+</button>
+<!-- Dynamic Game Resources Cluster -->
+<div class="flex items-center gap-2">
+<!-- Hearts Badge (Fully Replenished 5/5) with subtle radiant pulse -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container/60 border border-primary-container/40 animate-heart-pulse">
+<span class="material-symbols-outlined text-primary text-body-md" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md text-primary font-extrabold tracking-tight">5/5</span>
+</div>
+<!-- Coin Balance Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary-fixed border border-tertiary-fixed-dim/60 shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-body-md" data-icon="monetization_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-label-md text-label-md text-on-tertiary-fixed font-bold tracking-tight">135</span>
+</div>
+</div>
+</div>
+<!-- Combo Protected Shield Aura Strip -->
+<div class="mt-2.5 flex items-center justify-between px-3 py-1.5 rounded-xl bg-gradient-to-r from-tertiary-fixed via-tertiary-fixed-dim/40 to-tertiary-fixed border-2 border-tertiary-container/40 animate-golden-aura">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary-container shadow-sm">
+<span class="material-symbols-outlined text-label-md" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed font-extrabold tracking-wide uppercase">
+            КОМБО X3 ЗАЩИЩЕНО
+          </span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-tertiary px-2 py-0.5 rounded-md bg-surface-container-lowest/80 shadow-xs">
+          +150 XP
+        </span>
+</div>
+<!-- Round Progress Indicator -->
+<div class="mt-3">
+<div class="flex justify-between items-baseline mb-1">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Раунд 3 из 5: Еда и Напитки <span class="font-normal text-on-surface-variant font-hanzi-card">(食物与饮料)</span></span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">3/5 пар</span>
+</div>
+<!-- Progress track (60% filled) -->
+<div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden p-0.5 border border-outline-variant/30">
+<div class="h-full rounded-full bg-gradient-to-r from-secondary-fixed-dim via-secondary to-secondary-container transition-all duration-500 ease-out" style="width: 60%;"></div>
+</div>
+</div>
+</header>
+<!-- Main Interactive Canvas -->
+<div class="flex-1 px-4 pt-3 pb-4 flex flex-col gap-3">
+<!-- Status Toast / Floating Qi Charm Activation Banner -->
+<section class="rounded-xl bg-gradient-to-br from-surface-container-lowest via-secondary-container/20 to-tertiary-fixed/30 border-2 border-secondary/40 p-3 shadow-md relative overflow-hidden flex items-start gap-2.5">
+<div class="absolute -right-3 -bottom-3 text-secondary/10 pointer-events-none">
+<span class="material-symbols-outlined text-display-hero" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-body-md" data-icon="flare">flare</span>
+</div>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-surface leading-tight">
+            Оберег ци активирован!
+          </p>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-0.5 leading-snug">
+            Ваши комбо x3 и очки спасены. Продолжайте раунд без штрафа.
+          </p>
+</div>
+</section>
+<!-- Section Title & Instruction -->
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold tracking-wider uppercase">Сопоставьте пары иероглифов</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">Текущий выбор: Вода</span>
+</div>
+<!-- Word Matching Grid: 5 Rows × 2 Columns -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- ROW 1 (MATCHED) -->
+<!-- Row 1: Left - Matched Russian -->
+<div class="relative bg-secondary-container/30 border-2 border-secondary rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] opacity-90 transition-all">
+<div class="flex justify-between items-start">
+<span class="font-body-md text-label-md font-bold text-on-surface">Зелёный чай</span>
+<span class="material-symbols-outlined text-secondary text-body-md" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Совпало 🎉</span>
+</div>
+</div>
+<!-- Row 1: Right - Matched Chinese -->
+<div class="relative bg-secondary-container/30 border-2 border-secondary rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] opacity-90 transition-all">
+<div class="flex justify-between items-start">
+<span class="font-hanzi-card text-headline-lg text-secondary leading-none">绿茶</span>
+<button aria-label="Прослушать произношение" class="w-6 h-6 rounded-md bg-secondary/15 flex items-center justify-center text-secondary active:scale-95" type="button">
+<span class="material-symbols-outlined text-label-md" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="font-pinyin-annotation text-label-sm text-on-secondary-fixed-variant font-medium">lǜchá</span>
+</div>
+<!-- ROW 2 (ACTIVE RETRY: Failed pair now fresh & ready) -->
+<!-- Row 2: Left - Active Selected 'Вода' -->
+<div class="relative bg-primary-fixed/20 border-2 border-primary rounded-xl p-2.5 flex flex-col justify-between min-h-[82px] tactile-tile-selected ring-2 ring-primary/20">
+<div class="flex justify-between items-start">
+<span class="font-body-md text-label-md font-extrabold text-primary">Вода</span>
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Существительное</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-primary font-label-sm text-[10px] font-bold">ВЫБРАНО</span>
+</div>
+</div>
+<!-- Row 2: Right - Target Chinese '水' (Fresh Attempt) -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant hover:border-primary/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[82px] tactile-tile-idle cursor-pointer active:scale-98">
+<div class="flex justify-between items-start">
+<span class="font-hanzi-card text-headline-lg text-on-surface leading-none">水</span>
+<button aria-label="Прослушать произношение" class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant flex items-center justify-center hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-label-md" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="font-pinyin-annotation text-label-sm text-primary font-bold">shuǐ</span>
+<span class="font-label-sm text-[11px] text-tertiary font-semibold bg-tertiary-fixed/60 px-1 rounded">3-й тон</span>
+</div>
+</div>
+<!-- ROW 3 -->
+<!-- Row 3: Left - Unmatched Russian 'Рис' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-body-md text-label-md font-semibold text-on-surface">Рис / Еда</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">Ключ: 饣 (eda)</span>
+</div>
+<!-- Row 3: Right - Unmatched Chinese '米饭' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-hanzi-card text-headline-md text-on-surface leading-tight">米饭</span>
+<button aria-label="Прослушать произношение" class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-label-md" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="font-pinyin-annotation text-label-sm text-on-surface-variant">mǐfàn (3+4)</span>
+</div>
+<!-- ROW 4 -->
+<!-- Row 4: Left - Russian 'Яблоко' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-body-md text-label-md font-semibold text-on-surface">Яблоко</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">Фрукт</span>
+</div>
+<!-- Row 4: Right - Chinese '苹果' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-hanzi-card text-headline-md text-on-surface leading-tight">苹果</span>
+<button aria-label="Прослушать произношение" class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-label-md" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="font-pinyin-annotation text-label-sm text-on-surface-variant">píngguǒ</span>
+</div>
+<!-- ROW 5 -->
+<!-- Row 5: Left - Russian 'Пельмени' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-body-md text-label-md font-semibold text-on-surface">Пельмени</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">Традиц. блюдо</span>
+</div>
+<!-- Row 5: Right - Chinese '饺子' -->
+<div class="relative bg-surface-container-lowest border-2 border-outline-variant/60 rounded-xl p-2.5 flex flex-col justify-between min-h-[78px] tactile-tile-idle cursor-pointer">
+<div class="flex justify-between items-start">
+<span class="font-hanzi-card text-headline-md text-on-surface leading-tight">饺子</span>
+<button aria-label="Прослушать произношение" class="w-6 h-6 rounded-md bg-surface-container-high text-on-surface-variant flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-label-md" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+<span class="font-pinyin-annotation text-label-sm text-on-surface-variant">jiǎozi</span>
+</div>
+</div>
+<!-- Help & Calligraphy Mnemonic Card for Active '水' -->
+<section class="mt-1 bg-surface-container-lowest border border-outline-variant/60 rounded-xl p-3 shadow-xs">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 shrink-0">
+<span class="font-hanzi-card text-headline-md text-primary font-bold">水</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">Мнемоника: 水 (shuǐ)</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">4 черты</span>
+</div>
+<p class="font-body-md text-label-sm text-on-surface-variant mt-0.5 leading-snug">
+              Иероглиф символизирует струящуюся реку с каплями и брызгами по бокам.
+            </p>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-body-md text-tertiary" data-icon="lightbulb">lightbulb</span>
+            Ключ: Вода (氵 / 水)
+          </span>
+<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-bold flex items-center gap-0.5" type="button">
+<span>Совет каллиграфа</span>
+<span class="material-symbols-outlined text-label-md" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+<!-- Sticky Bottom Control & Submission Bar -->
+<footer class="sticky bottom-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md px-4 pt-3 pb-5 border-t border-outline-variant/40 shadow-lg">
+<!-- Utility Action Triggers (Hints / Audio all) -->
+<div class="flex items-center gap-2 mb-2.5">
+<button class="flex-1 py-2 px-3 rounded-xl bg-surface-container border border-outline-variant/40 text-on-surface flex items-center justify-center gap-1.5 font-label-md text-label-md font-semibold tactile-btn-secondary" type="button">
+<span class="material-symbols-outlined text-tertiary text-body-md" data-icon="lightbulb" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span>Подсказка (2)</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded-xl bg-surface-container border border-outline-variant/40 text-on-surface flex items-center justify-center gap-1.5 font-label-md text-label-md font-semibold tactile-btn-secondary" type="button">
+<span class="material-symbols-outlined text-secondary text-body-md" data-icon="volume_up">volume_up</span>
+<span>Озвучить всё</span>
+</button>
+</div>
+<!-- Rich Cinnabar Vermilion Primary Button CTA -->
+<button class="w-full py-3.5 px-4 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-headline-md text-body-lg font-extrabold flex items-center justify-center gap-2 tracking-wide tactile-btn-primary" type="button">
+<span>Выбрать иероглиф для «Вода»</span>
+<span class="material-symbols-outlined text-headline-md" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Charm Protective Safeguard Micro-note -->
+<div class="mt-2 flex items-center justify-center gap-1 text-center">
+<span class="material-symbols-outlined text-label-md text-tertiary" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium">
+          Оберег спасёт ваше комбо при следующей ошибке
+        </span>
+</div>
+</footer>
+</main>
+</body></html>

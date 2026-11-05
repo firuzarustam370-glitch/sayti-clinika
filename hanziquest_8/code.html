@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HanziQuest — Успешное закрытие раунда с сохранённым комбо x3</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "secondary-fixed-dim": "#4edea3",
+            "surface": "#f8f9ff",
+            "secondary": "#006c49",
+            "secondary-fixed": "#6ffbbe",
+            "on-error-container": "#93000a",
+            "surface-container": "#eaeef8",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed-variant": "#005236",
+            "secondary-container": "#6cf8bb",
+            "primary-fixed-dim": "#ffb3ad",
+            "surface-container-low": "#f0f4fd",
+            "surface-tint": "#b81f26",
+            "primary-container": "#d73839",
+            "error": "#ba1a1a",
+            "inverse-primary": "#ffb3ad",
+            "error-container": "#ffdad6",
+            "surface-variant": "#dee2ec",
+            "on-secondary-container": "#00714d",
+            "tertiary-container": "#a36700",
+            "surface-container-highest": "#dee2ec",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2a1700",
+            "surface-container-high": "#e4e8f2",
+            "primary": "#b41c23",
+            "on-surface-variant": "#5b403e",
+            "on-surface": "#171c23",
+            "outline-variant": "#e3bebb",
+            "inverse-on-surface": "#edf1fb",
+            "tertiary-fixed": "#ffddb8",
+            "surface-dim": "#d6dae4",
+            "tertiary": "#825100",
+            "on-secondary-fixed": "#002113",
+            "on-background": "#171c23",
+            "surface-bright": "#f8f9ff",
+            "on-primary-fixed-variant": "#930013",
+            "on-tertiary-container": "#fffbff",
+            "primary-fixed": "#ffdad7",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-primary-container": "#fffbff",
+            "on-error": "#ffffff",
+            "on-primary-fixed": "#410004",
+            "outline": "#8f706d",
+            "background": "#f8f9ff",
+            "inverse-surface": "#2c3138",
+            "on-tertiary-fixed-variant": "#653e00"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "hanzi-card": [
+              "\"system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif\""
+            ],
+            "body-lg": [
+              "Be Vietnam Pro"
+            ],
+            "label-md": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "pinyin-annotation": [
+              "Be Vietnam Pro"
+            ],
+            "hanzi-display": [
+              "\"system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif\""
+            ],
+            "headline-md": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md": [
+              "Be Vietnam Pro"
+            ],
+            "display-hero": [
+              "Plus Jakarta Sans"
+            ],
+            "label-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Plus Jakarta Sans"
+            ]
+          },
+          "fontSize": {
+            "display-hero-mobile": [
+              "36px",
+              {
+                "lineHeight": "44px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "800"
+              }
+            ],
+            "hanzi-card": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "fontWeight": "500"
+              }
+            ],
+            "body-lg": [
+              "18px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "headline-lg-mobile": [
+              "26px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "0em",
+                "fontWeight": "700"
+              }
+            ],
+            "pinyin-annotation": [
+              "16px",
+              {
+                "lineHeight": "22px",
+                "letterSpacing": "0.04em",
+                "fontWeight": "600"
+              }
+            ],
+            "hanzi-display": [
+              "64px",
+              {
+                "lineHeight": "72px",
+                "fontWeight": "500"
+              }
+            ],
+            "headline-md": [
+              "22px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "700"
+              }
+            ],
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "display-hero": [
+              "48px",
+              {
+                "lineHeight": "56px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "label-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.04em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Press Physics */
+    .tactile-btn-primary {
+      box-shadow: 0 4px 0 0 #930013;
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #930013;
+    }
+
+    .tactile-btn-secondary {
+      box-shadow: 0 3px 0 0 #dee2ec;
+      transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #dee2ec;
+    }
+
+    .tactile-card-match {
+      box-shadow: 0 4px 0 0 #005236, 0 8px 16px -4px rgba(0, 108, 73, 0.15);
+    }
+
+    /* Radiating Shimmer Animations */
+    @keyframes pulseAura {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+    .anim-pulse-aura {
+      animation: pulseAura 3s ease-in-out infinite;
+    }
+
+    @keyframes rotateRay {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .anim-rotate-rays {
+      animation: rotateRay 24s linear infinite;
+    }
+
+    @keyframes starBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-4px) scale(1.1); }
+    }
+    .anim-star-1 { animation: starBounce 2.2s ease-in-out infinite 0.1s; }
+    .anim-star-2 { animation: starBounce 2.2s ease-in-out infinite 0.3s; }
+    .anim-star-3 { animation: starBounce 2.2s ease-in-out infinite 0.5s; }
+
+    @keyframes badgeGleam {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .gold-badge-gleam {
+      background: linear-gradient(90deg, #ffddb8 0%, #ffffff 50%, #ffddb8 100%);
+      background-size: 200% auto;
+      animation: badgeGleam 4s linear infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary font-body-md text-body-md">
+<!-- Mobile Viewport Wrapper (390px - 430px optimal phone container) -->
+<main class="w-full max-w-[420px] min-h-screen bg-surface flex flex-col justify-between shadow-2xl relative overflow-hidden border-x border-outline-variant/30">
+<!-- Ambient Victory Rays Background Effect -->
+<div class="absolute -top-16 left-1/2 -translate-x-1/2 w-96 h-96 pointer-events-none opacity-40 anim-rotate-rays z-0">
+<div class="w-full h-full rounded-full bg-[conic-gradient(from_0deg,#ffddb8_0deg,#ffffff_20deg,#ffddb8_40deg,#ffffff_60deg,#ffddb8_80deg,#ffffff_100deg,#ffddb8_120deg,#ffffff_140deg,#ffddb8_160deg,#ffffff_180deg,#ffddb8_200deg,#ffffff_220deg,#ffddb8_240deg,#ffffff_260deg,#ffddb8_280deg,#ffffff_300deg,#ffddb8_320deg,#ffffff_340deg,#ffddb8_360deg)] opacity-25"></div>
+</div>
+<!-- Top Floating Sparkles Overlay -->
+<div class="absolute top-12 left-6 text-tertiary-container animate-pulse opacity-80 pointer-events-none">✨</div>
+<div class="absolute top-20 right-8 text-primary text-xl animate-bounce opacity-75 pointer-events-none">✦</div>
+<div class="absolute top-36 left-10 text-secondary text-sm animate-ping opacity-60 pointer-events-none">★</div>
+<div class="absolute top-48 right-12 text-tertiary-container animate-pulse opacity-70 pointer-events-none">✨</div>
+<!-- Scrollable Content Track -->
+<div class="relative z-10 flex-1 px-4 pt-4 pb-6 overflow-y-auto">
+<!-- SECTION 1: Top Bar & Progress Status -->
+<section aria-label="Панель состояния раунда" class="w-full mb-3">
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<!-- Close Action -->
+<button aria-label="Закрыть экран результатов" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-surface-variant transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<!-- Status Counters Cluster -->
+<div class="flex items-center gap-2">
+<!-- Heart Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest border border-outline-variant/60 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">5/5</span>
+</div>
+<!-- Coin Pill with Bonus indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest border border-tertiary-fixed rounded-full shadow-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]" data-icon="monetization_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-md text-label-md text-on-surface font-bold">165</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">(+30)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Combo Saved Golden Celebration Banner -->
+<div class="w-full bg-tertiary-fixed/40 border border-tertiary-container/30 rounded-xl p-2.5 mb-2.5 flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-tertiary-container text-[20px]" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-md text-label-md text-on-tertiary-fixed font-bold tracking-tight text-center">
+            КОМБО X3 СПАСЕНО! (+150 XP БОНУС)
+          </span>
+</div>
+<!-- 100% Progress Bar -->
+<div class="space-y-1">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-sm text-label-sm text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              5 из 5 пар сопоставлено
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">100% Завершено</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden p-0.5 border border-outline-variant/40">
+<div class="h-full bg-gradient-to-r from-secondary via-secondary-fixed-dim to-tertiary-fixed-dim rounded-full relative overflow-hidden transition-all duration-700 w-full">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Central Hero Celebration Banner & Master Victory Seal -->
+<section aria-label="Победный статус" class="text-center my-3 relative">
+<!-- Large Cinnabar Traditional Master Chop Seal -->
+<div class="relative w-28 h-28 mx-auto mb-2.5 flex items-center justify-center">
+<!-- Pulsing Sun Aura -->
+<div class="absolute inset-0 bg-primary/20 rounded-2xl anim-pulse-aura blur-md"></div>
+<div class="absolute -inset-2 bg-tertiary-fixed/30 rounded-3xl blur-lg"></div>
+<!-- Traditional Red Ink Seal Chop Container -->
+<div class="relative w-24 h-24 bg-primary rounded-2xl border-4 border-primary-fixed p-1.5 shadow-lg flex flex-col items-center justify-center text-on-primary">
+<!-- Seal Inner Inset Border -->
+<div class="w-full h-full border-2 border-dashed border-primary-fixed/80 rounded-xl flex flex-col items-center justify-center bg-primary-container">
+<!-- Hanzi Shèng (Victory) -->
+<span class="font-hanzi-display text-[46px] leading-none font-bold select-none text-on-primary tracking-tighter">
+                胜
+              </span>
+<!-- Pinyin chop annotation -->
+<span class="font-pinyin-annotation text-[10px] uppercase font-bold tracking-widest text-primary-fixed">
+                SHÈNG
+              </span>
+</div>
+<!-- Authentic Seal Corner Ornaments -->
+<span class="absolute top-1 left-1 text-[8px] text-primary-fixed">❖</span>
+<span class="absolute top-1 right-1 text-[8px] text-primary-fixed">❖</span>
+<span class="absolute bottom-1 left-1 text-[8px] text-primary-fixed">❖</span>
+<span class="absolute bottom-1 right-1 text-[8px] text-primary-fixed">❖</span>
+</div>
+<!-- Mini Rank Ribbon Stamp Badge -->
+<div class="absolute -bottom-2 -right-1 bg-tertiary-container text-on-tertiary px-2 py-0.5 rounded-full border border-tertiary-fixed shadow-md flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-[10px] font-bold">Идеал</span>
+</div>
+</div>
+<!-- Triumphant Stars (3 Gold Stars) -->
+<div class="flex items-center justify-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl anim-star-1 drop-shadow" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-container text-4xl anim-star-2 drop-shadow-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl anim-star-3 drop-shadow" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<!-- Headline & Subtitle -->
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold tracking-tight mb-1">
+          Раунд завершён!
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[320px] mx-auto leading-snug px-2">
+          Благословение оберега спасло вашу серию комбо! Все 5 пар успешно разгаданы.
+        </p>
+</section>
+<!-- SECTION 3: Final Matched Pair Showcase (Вода ↔ 水) -->
+<section aria-label="Финальная пара раунда" class="mb-4 bg-surface-container-low border-2 border-secondary/30 rounded-2xl p-3 relative overflow-hidden">
+<!-- Jade Confetti Accent Dots -->
+<div class="absolute top-2 right-3 flex gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+</div>
+<div class="flex items-center gap-1.5 mb-2.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wide">
+            Финальный победный аккорд
+          </span>
+</div>
+<!-- Interactive Tactile Card Pair Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Card Russian Target: Вода -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-3 flex flex-col items-center justify-center text-center tactile-card-match relative">
+<span class="absolute top-1.5 right-1.5 bg-secondary-fixed text-on-secondary-fixed rounded-full w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]" data-icon="check">check</span>
+</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium mb-0.5">Русский перевод</span>
+<span class="font-headline-md text-headline-md font-bold text-on-surface">Вода</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold mt-1">Существительное</span>
+</div>
+<!-- Card Chinese Hanzi Target: 水 (shuǐ) -->
+<div class="bg-surface-container-lowest border-2 border-secondary rounded-xl p-3 flex flex-col items-center justify-center text-center tactile-card-match relative">
+<span class="absolute top-1.5 right-1.5 bg-secondary-fixed text-on-secondary-fixed rounded-full w-5 h-5 flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]" data-icon="volume_up">volume_up</span>
+</span>
+<span class="font-hanzi-card text-hanzi-card font-medium text-secondary leading-none mb-1">水</span>
+<div class="flex items-center gap-1">
+<span class="font-pinyin-annotation text-pinyin-annotation text-on-surface font-bold">shuǐ</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">3-й тон</span>
+</div>
+</div>
+</div>
+<!-- Footer caption for pair -->
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center mt-2 font-medium">
+          Пара «Вода — 水» безупречно сопоставлена за 1.4 сек!
+        </p>
+</section>
+<!-- SECTION 4: Quest Rewards & Combo Shield Multiplier Breakdown Card -->
+<section aria-label="Сводка наград" class="bg-surface-container-lowest border-2 border-outline-variant/50 rounded-2xl p-4 shadow-sm relative mb-2">
+<!-- Header of Receipt -->
+<div class="flex items-center justify-between pb-3 border-b border-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="receipt_long">receipt_long</span>
+<h2 class="font-label-md text-label-md font-bold text-on-surface">Награды за раунд</h2>
+</div>
+<!-- Obereg Shield Active Tag -->
+<span class="bg-secondary-fixed/50 border border-secondary text-on-secondary-fixed-variant font-label-sm text-[11px] px-2 py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+            Оберег активен
+          </span>
+</div>
+<!-- Line Items -->
+<div class="py-3 space-y-2.5">
+<!-- Row 1: Base XP -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[16px]" data-icon="military_tech">military_tech</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">Опыт за раунд</span>
+</div>
+<span class="font-headline-md text-base font-bold text-on-surface">+100 XP</span>
+</div>
+<!-- Row 2: Shield Multiplier Combo x3 -->
+<div class="flex items-center justify-between bg-tertiary-fixed/30 -mx-2 px-2 py-1.5 rounded-xl border border-tertiary-fixed">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-tertiary-container flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="shield">shield</span>
+</div>
+<div>
+<span class="font-body-md text-body-md text-on-surface font-bold flex items-center gap-1">
+                  Защита комбо x3
+                  <span class="material-symbols-outlined text-primary text-[14px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</span>
+<span class="font-label-sm text-[11px] text-tertiary-container font-semibold block leading-tight">Бонус оберега свитка</span>
+</div>
+</div>
+<span class="font-headline-md text-base font-extrabold text-tertiary-container">+150 XP</span>
+</div>
+<!-- Row 3: Coins -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="monetization_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">Монеты за победу</span>
+</div>
+<span class="font-headline-md text-base font-bold text-tertiary-container">+30 🪙</span>
+</div>
+<!-- Row 4: Streak Saved -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-error-container/60 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant font-medium">Ударный режим</span>
+</div>
+<span class="font-label-md text-label-md text-primary font-bold">🔥 8 дней подряд!</span>
+</div>
+</div>
+<!-- Receipt Total & Obereg Callout -->
+<div class="pt-2.5 border-t border-surface-variant/80 flex flex-col gap-2">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface font-extrabold uppercase">Итого получено:</span>
+<div class="text-right">
+<span class="font-headline-md text-headline-md font-extrabold text-primary">+250 XP</span>
+<span class="text-xs text-on-surface-variant font-bold ml-1">/ +30 🪙</span>
+</div>
+</div>
+<!-- Guarantee Badge -->
+<div class="bg-secondary-fixed/30 border border-secondary/40 rounded-lg py-1 px-2.5 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="verified_user">verified_user</span>
+<span class="font-label-sm text-[11px] text-on-secondary-fixed-variant font-bold text-center">
+              Оберег сработал безупречно: 0 потерянных очков!
+            </span>
+</div>
+</div>
+</section>
+</div>
+<!-- SECTION 5: Fixed Thumb-friendly Bottom Action Area -->
+<div class="p-4 bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/40 relative z-20 space-y-2.5">
+<!-- Primary Big Action Button -->
+<button aria-label="Забрать награды и перейти к следующему раунду" class="w-full bg-primary hover:bg-primary-container text-on-primary py-3.5 px-4 rounded-xl font-headline-md text-base font-bold flex items-center justify-center gap-2 tactile-btn-primary">
+<span>Забрать награды и следующий раунд</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Secondary Tertiary Action Button -->
+<button aria-label="Открыть разбор каллиграфии пяти изученных слов" class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-2.5 px-4 rounded-xl font-label-md text-label-md font-bold flex items-center justify-center gap-2 border border-outline-variant/50 tactile-btn-secondary">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="history_edu">history_edu</span>
+<span>Посмотреть разбор и каллиграфию (5 слов)</span>
+</button>
+</div>
+</main>
+<!-- Interactive Audio and Sound FX feedback micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Audio click vibration tactile trigger simulation
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (navigator.vibrate) {
+            navigator.vibrate(25); // Subtle mobile haptic click
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

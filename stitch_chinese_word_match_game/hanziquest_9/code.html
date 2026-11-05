@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>HanziQuest — Карта путешествия</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#00714d",
+            "surface-variant": "#dee2ec",
+            "on-surface-variant": "#5b403e",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#ffb3ad",
+            "on-surface": "#171c23",
+            "primary-fixed": "#ffdad7",
+            "error": "#ba1a1a",
+            "tertiary": "#825100",
+            "inverse-primary": "#ffb3ad",
+            "surface-container-high": "#e4e8f2",
+            "surface-container-low": "#f0f4fd",
+            "secondary-fixed-dim": "#4edea3",
+            "on-primary-fixed-variant": "#930013",
+            "secondary-fixed": "#6ffbbe",
+            "surface-bright": "#f8f9ff",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface-container": "#eaeef8",
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-highest": "#dee2ec",
+            "primary-container": "#d73839",
+            "surface": "#f8f9ff",
+            "outline": "#8f706d",
+            "tertiary-container": "#a36700",
+            "on-background": "#171c23",
+            "surface-tint": "#b81f26",
+            "background": "#f8f9ff",
+            "on-primary-fixed": "#410004",
+            "secondary": "#006c49",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#edf1fb",
+            "secondary-container": "#6cf8bb",
+            "inverse-surface": "#2c3138",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#fffbff",
+            "surface-dim": "#d6dae4",
+            "primary": "#b41c23",
+            "on-secondary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#2a1700",
+            "on-secondary-fixed": "#002113",
+            "tertiary-fixed": "#ffddb8",
+            "on-tertiary-container": "#fffbff",
+            "on-tertiary-fixed-variant": "#653e00",
+            "outline-variant": "#e3bebb"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xl": "2.5rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "hanzi-card": ["system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Be Vietnam Pro"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "hanzi-display": ["system-ui, -apple-system, 'PingFang SC', 'Noto Sans SC', sans-serif"],
+            "pinyin-annotation": ["Be Vietnam Pro"],
+            "body-lg": ["Be Vietnam Pro"]
+          },
+          "fontSize": {
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "hanzi-card": ["40px", { "lineHeight": "48px", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "hanzi-display": ["64px", { "lineHeight": "72px", "fontWeight": "500" }],
+            "pinyin-annotation": ["16px", { "lineHeight": "22px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile button mechanics & game styling */
+    .tactile-btn-cinnabar {
+      box-shadow: 0 4px 0 0 #930013;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-cinnabar:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #930013;
+    }
+
+    .tactile-node {
+      transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .tactile-node:active {
+      transform: scale(0.92);
+    }
+
+    /* Ambient rice paper parchment pattern */
+    .parchment-pattern {
+      background-color: #faf7f2;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(227, 190, 187, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(111, 251, 190, 0.1) 0%, transparent 45%),
+        linear-gradient(rgba(23, 28, 35, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23, 28, 35, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.22); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .active-beacon {
+      animation: pulse-ring 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes bob-pin {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .avatar-pin-bounce {
+      animation: bob-pin 2s ease-in-out infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased select-none font-body-md text-body-md overflow-x-hidden min-h-screen">
+<!-- Mobile Viewport Wrapper (Centered constraint on desktop for optimal preview) -->
+<div class="max-w-md mx-auto min-h-screen parchment-pattern flex flex-col relative pb-36 shadow-2xl border-x border-outline-variant/30">
+<!-- 1. TOP HEADER BAR: Sticky Status & Resources -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md px-3 py-2.5 flex items-center justify-between border-b border-outline-variant/40 shadow-sm">
+<!-- Left: Menu / Navigation -->
+<button aria-label="Меню" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<!-- Center & Right: Resource Badges -->
+<div class="flex items-center gap-1.5 flex-1 justify-end">
+<!-- Hearts Badge -->
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-full border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-headline-md text-[13px] font-bold text-on-surface leading-none">5/5</span>
+</div>
+<!-- Coins Badge -->
+<div class="flex items-center gap-1 bg-tertiary-fixed/60 px-2 py-1 rounded-full border border-tertiary-fixed-dim/60">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-headline-md text-[13px] font-extrabold text-on-tertiary-fixed-variant leading-none">165</span>
+</div>
+<!-- Streak Fire Badge -->
+<div class="flex items-center gap-1 bg-error-container/60 px-2 py-1 rounded-full border border-primary-fixed-dim/70">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-headline-md text-[13px] font-extrabold text-primary leading-none">8</span>
+</div>
+<!-- Scholar Rank Badge -->
+<div class="flex items-center gap-1.5 pl-1">
+<div class="relative w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs border-2 border-surface-container-lowest shadow-sm" title="Ученик Мастера">
+<span class="font-hanzi-card text-xs">墨</span>
+<div class="absolute -bottom-1 -right-1 bg-primary text-white text-[9px] font-extrabold px-1 rounded-full border border-white">
+              7
+            </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Sub-header Level / Progress Track Strip -->
+<div class="bg-surface-container-low px-4 py-2 flex items-center justify-between border-b border-outline-variant/30 text-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">Ранг: Ученик Мастера</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 83.5%;"></div>
+</div>
+<span class="font-label-sm text-[11px] font-bold text-on-surface-variant">1,670 / 2,000 XP</span>
+</div>
+</div>
+<!-- MAIN SCROLLABLE JOURNEY CONTENT -->
+<main class="flex-1 px-4 pt-3 pb-8 relative flex flex-col">
+<!-- 2. CHAPTER TRANSITION HERO ANNOUNCEMENT (Duolingo/Scroll Milestone Card) -->
+<section class="relative my-2 rounded-2xl bg-surface-container-lowest border-2 border-primary/20 shadow-md p-4 overflow-hidden">
+<!-- Traditional Corner Cloud Decorative Watermarks -->
+<div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none text-primary font-hanzi-display text-[96px] leading-none select-none">
+          龍
+        </div>
+<div class="flex items-start gap-3">
+<!-- Traditional Imperial Chop / Seal ("启" - Начинание / Открытие) -->
+<div class="w-13 h-13 min-w-[52px] bg-primary rounded-xl flex flex-col items-center justify-center text-on-primary border-2 border-primary-fixed shadow-inner p-1">
+<span class="font-hanzi-card text-2xl font-bold leading-tight">启</span>
+<span class="font-label-sm text-[8px] uppercase tracking-tighter text-primary-fixed">Разблокировано</span>
+</div>
+<!-- Announcement Texts -->
+<div class="flex-1">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="inline-flex items-center gap-0.5 bg-secondary/10 text-secondary px-2 py-0.5 rounded-full font-label-sm text-[10px] font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Глава 1 пройдена
+              </span>
+<span class="text-[11px] font-label-sm text-on-surface-variant font-medium">100% Мастерства</span>
+</div>
+<h2 class="font-headline-md text-[17px] text-on-surface font-extrabold leading-snug">
+              Глава 2: Чайный домик и рынок
+            </h2>
+<p class="font-hanzi-card text-[13px] text-primary font-medium tracking-wide">
+              茶馆与集市 · Новые 25 иероглифов
+            </p>
+</div>
+</div>
+<!-- Reward Chest Claimed Ribbon -->
+<div class="mt-3.5 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between bg-surface-container-low/70 -mx-4 -mb-4 px-4 py-2.5">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed text-tertiary flex items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lock_open</span>
+</div>
+<div>
+<div class="font-label-md text-xs font-bold text-on-surface">Сундук мастера открыт!</div>
+<div class="text-[11px] font-body-md text-on-surface-variant">+30 монет 🪙, +1 Оберег комбо 📿</div>
+</div>
+</div>
+<span class="inline-flex items-center text-secondary text-xs font-bold gap-0.5 bg-secondary-fixed/40 px-2 py-1 rounded-md">
+            Получено
+          </span>
+</div>
+</section>
+<!-- CHAPTER SEPARATOR RIBBON -->
+<div class="flex items-center justify-center my-4">
+<div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+<span class="px-3 py-1 bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-bold rounded-full uppercase tracking-wider flex items-center gap-1 shadow-2xs">
+<span class="material-symbols-outlined text-[14px]">explore</span>
+          Карта тропы мудрости
+        </span>
+<div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+</div>
+<!-- 3. INTERACTIVE S-CURVED JOURNEY MAP (Winding Vertical Path) -->
+<div class="relative w-full py-4 flex flex-col items-center">
+<!-- SVG Path Lines (Connecting curves behind nodes) -->
+<svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-0" fill="none" preserveaspectratio="none" viewbox="0 0 380 920">
+<!-- Completed Line: Chapter 1 Path (Jade solid with gold dash) -->
+<path d="M 190,870 C 190,830 110,800 110,750 C 110,700 270,680 270,630 C 270,580 190,560 190,510" opacity="0.85" stroke="#006c49" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path>
+<path d="M 190,870 C 190,830 110,800 110,750 C 110,700 270,680 270,630 C 270,580 190,560 190,510" stroke="#6ffbbe" stroke-dasharray="6 6" stroke-linecap="round" stroke-width="2"></path>
+<!-- Transition Bridge: Chapter 1 Milestone to Active Node 6 -->
+<path d="M 190,510 C 190,460 210,430 210,380" stroke="#b41c23" stroke-linecap="round" stroke-width="6"></path>
+<path d="M 190,510 C 190,460 210,430 210,380" stroke="#ffdad7" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path>
+<!-- Upcoming Locked Nodes Path: Foggy / Faint Outline -->
+<path d="M 210,380 C 210,330 110,300 110,240 C 110,180 270,160 270,90 C 270,40 190,20 190,0" opacity="0.9" stroke="#dee2ec" stroke-dasharray="8 8" stroke-linecap="round" stroke-width="5"></path>
+</svg>
+<!-- ==================== UPCOMING LOCKED NODES (Top of Scroll) ==================== -->
+<!-- Node 9: Chapter 2 Boss / Tea Pavilion Master (Locked) -->
+<div class="relative z-10 w-full flex justify-center mb-14 opacity-55">
+<div class="flex flex-col items-center">
+<div class="w-18 h-18 rounded-2xl bg-surface-container-high border-2 border-outline-variant/60 flex flex-col items-center justify-center shadow-xs">
+<span class="material-symbols-outlined text-[32px] text-outline">castle</span>
+<span class="font-hanzi-card text-xs text-outline font-semibold">茶尊</span>
+</div>
+<div class="mt-1.5 px-2.5 py-0.5 bg-surface-container-highest rounded-full text-[11px] font-label-sm font-semibold text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+              Босс: Чайный Мастер
+            </div>
+</div>
+</div>
+<!-- Node 8: Locked Node (Right Curve) -->
+<div class="relative z-10 w-full flex justify-end pr-10 mb-14 opacity-50">
+<div class="flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[22px]">lock</span>
+</div>
+<span class="font-label-sm text-[11px] text-outline mt-1 font-medium">Ур. 8 · Цены</span>
+</div>
+</div>
+<!-- Node 7: Locked Node (Left Curve) -->
+<div class="relative z-10 w-full flex justify-start pl-10 mb-14 opacity-60">
+<div class="flex flex-col items-center">
+<div class="w-15 h-15 rounded-full bg-surface-container border-2 border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-[24px]">storefront</span>
+</div>
+<div class="mt-1 flex items-center gap-0.5 bg-surface-container px-2 py-0.5 rounded-md text-[10px] font-label-sm font-medium text-outline">
+<span class="material-symbols-outlined text-[11px]">lock</span>
+              Ур. 7 · Ряды
+            </div>
+</div>
+</div>
+<!-- ==================== CURRENT ACTIVE NODE 6 (THE EPICENTER) ==================== -->
+<div class="relative z-20 w-full flex flex-col items-center my-6">
+<!-- Floating Pin / Avatar Indicator pointing down to Node 6 -->
+<div class="avatar-pin-bounce flex flex-col items-center mb-1">
+<div class="bg-primary text-white font-headline-md text-xs px-3 py-1 rounded-full shadow-lg flex items-center gap-1 border-2 border-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>ВЫ ЗДЕСЬ</span>
+</div>
+<div class="w-0 h-0 border-x-6 border-x-transparent border-t-6 border-t-primary -mt-[1px]"></div>
+</div>
+<!-- Pulsing Beacon Rings around Level 6 Node -->
+<div class="relative flex items-center justify-center">
+<div class="absolute w-24 h-24 rounded-full bg-primary/20 active-beacon pointer-events-none"></div>
+<div class="absolute w-20 h-20 rounded-full bg-primary/30 pointer-events-none"></div>
+<!-- Large Interactive Cinnabar Node Button -->
+<button aria-label="Открыть Уровень 6" class="tactile-node w-18 h-18 rounded-full bg-primary text-on-primary flex flex-col items-center justify-center border-4 border-surface-container-lowest shadow-xl ring-4 ring-primary/40 focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[34px] leading-none" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="font-hanzi-card text-xs font-bold leading-none mt-0.5">礼</span>
+</button>
+</div>
+<!-- Quick Preview Speech Bubble Card attached to Current Node -->
+<div class="mt-3.5 bg-surface-container-lowest border-2 border-primary/30 rounded-2xl p-3.5 shadow-xl max-w-[310px] w-full text-center relative">
+<!-- Top pointing arrow -->
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-surface-container-lowest border-t-2 border-l-2 border-primary/30 rotate-45"></div>
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-label-sm font-extrabold uppercase text-primary tracking-wider">
+                Уровень 6 · Раунд 1/5
+              </span>
+<span class="text-[11px] font-label-sm font-bold bg-primary-fixed text-on-primary-fixed-variant px-1.5 py-0.5 rounded-full">
+                +50 XP
+              </span>
+</div>
+<div class="font-headline-md text-base text-on-surface font-extrabold leading-tight">
+              Приветствия и Вежливость
+            </div>
+<div class="text-xs font-hanzi-card text-on-surface-variant font-medium mt-0.5 mb-2">
+              问候与礼仪 (wènhòu yǔ lǐyí)
+            </div>
+<!-- New Vocabulary Tag Previews -->
+<div class="grid grid-cols-3 gap-1.5 pt-1.5 border-t border-outline-variant/40">
+<div class="bg-surface-container-low rounded-lg py-1 px-1 flex flex-col items-center">
+<span class="font-hanzi-card text-base font-bold text-on-surface leading-tight">你好</span>
+<span class="font-pinyin-annotation text-[10px] text-on-surface-variant">nǐ hǎo</span>
+<span class="text-[9px] text-on-surface-variant/80">Привет</span>
+</div>
+<div class="bg-surface-container-low rounded-lg py-1 px-1 flex flex-col items-center">
+<span class="font-hanzi-card text-base font-bold text-on-surface leading-tight">谢谢</span>
+<span class="font-pinyin-annotation text-[10px] text-on-surface-variant">xièxie</span>
+<span class="text-[9px] text-on-surface-variant/80">Спасибо</span>
+</div>
+<div class="bg-surface-container-low rounded-lg py-1 px-1 flex flex-col items-center">
+<span class="font-hanzi-card text-base font-bold text-on-surface leading-tight">请</span>
+<span class="font-pinyin-annotation text-[10px] text-on-surface-variant">qǐng</span>
+<span class="text-[9px] text-on-surface-variant/80">Пожалуйста</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================== CHAPTER 1 MILESTONE (COMPLETED) ==================== -->
+<!-- Milestone Node 5: Dragon Pagoda Gate (Chapter 1 Complete) -->
+<div class="relative z-10 w-full flex justify-center my-8">
+<div class="flex flex-col items-center">
+<!-- Pagoda/Seal Completed Badge -->
+<div class="relative">
+<div class="w-18 h-18 rounded-2xl bg-secondary text-on-secondary flex flex-col items-center justify-center border-4 border-surface-container-lowest shadow-md">
+<span class="material-symbols-outlined text-[32px] leading-none" style="font-variation-settings: 'FILL' 1;">temple_buddhist</span>
+<span class="font-hanzi-card text-[11px] font-bold">太和</span>
+</div>
+<!-- Completed Checkmark Stamp -->
+<div class="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-surface-container-lowest text-secondary flex items-center justify-center shadow-md border-2 border-secondary">
+<span class="material-symbols-outlined text-[16px] font-extrabold" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="mt-2 text-center">
+<div class="font-headline-md text-xs font-extrabold text-secondary flex items-center justify-center gap-1">
+<span>Глава 1: Врата Еды</span>
+<span class="text-tertiary-container">★★★</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">100% Завершено</span>
+</div>
+</div>
+</div>
+<!-- Node 4: Completed (Right Curve) -->
+<div class="relative z-10 w-full flex justify-end pr-12 mb-10">
+<div class="flex flex-col items-center">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center border-2 border-secondary shadow-sm">
+<span class="font-hanzi-card text-lg font-bold">茶</span>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-white rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px] block" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex items-center gap-0.5 text-tertiary-container text-[10px] mt-1 font-bold">
+              ★★★
+            </div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">Ур. 4 · Напитки</span>
+</div>
+</div>
+<!-- Node 3: Completed (Left Curve) -->
+<div class="relative z-10 w-full flex justify-start pl-12 mb-10">
+<div class="flex flex-col items-center">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center border-2 border-secondary shadow-sm">
+<span class="font-hanzi-card text-lg font-bold">米</span>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-secondary text-white rounded-full p-0.5">
+<span class="material-symbols-outlined text-[12px] block" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="flex items-center gap-0.5 text-tertiary-container text-[10px] mt-1 font-bold">
+              ★★★
+            </div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">Ур. 3 · Блюда</span>
+</div>
+</div>
+<!-- Node 1-2 Base Portal: Start Point -->
+<div class="relative z-10 w-full flex justify-center mb-6">
+<div class="flex items-center gap-2 bg-surface-container-high/80 px-3 py-1.5 rounded-full border border-outline-variant/60 text-xs text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Старт Пути: Уровни 1–2 освоены</span>
+</div>
+</div>
+</div>
+</main>
+<!-- 4. BOTTOM DOCKED ACTION PANEL (Sticky Thumb Zone) -->
+<div class="fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
+<div class="max-w-md mx-auto pointer-events-auto">
+<!-- Floating Large Launch Action (Cinnabar Red Primary) -->
+<div class="px-4 pb-2 pt-2 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/90 to-transparent">
+<button onclick="window.location.href='../hanziquest_10/code.html'" class="tactile-btn-cinnabar w-full py-3.5 px-6 rounded-2xl bg-primary text-on-primary flex items-center justify-between font-headline-md text-base font-extrabold shadow-lg focus:outline-none" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>Начать Раунд 6: «Приветствия»</span>
+</div>
+<span class="material-symbols-outlined text-[24px]">arrow_forward</span>
+</button>
+</div>
+<!-- Shared Bottom Navigation Bar (Semantic 4-Tab Footer) -->
+<nav class="bg-surface-container-lowest border-t border-outline-variant/40 px-3 py-1.5 flex items-center justify-around shadow-md">
+<!-- Tab 1: Карта (ACTIVE) -->
+<button class="flex flex-col items-center py-1 px-3 rounded-xl text-primary font-bold transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="font-label-sm text-[11px] font-bold mt-0.5">Карта</span>
+</button>
+<!-- Tab 2: Практика / Дзен -->
+<button class="flex flex-col items-center py-1 px-3 rounded-xl text-on-surface-variant font-medium hover:text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">self_improvement</span>
+<span class="font-label-sm text-[11px] mt-0.5">Дзен</span>
+</button>
+<!-- Tab 3: Сундуки & Обереги -->
+<button class="flex flex-col items-center py-1 px-3 rounded-xl text-on-surface-variant font-medium hover:text-on-surface transition-all relative" type="button">
+<span class="material-symbols-outlined text-[24px]">inventory_2</span>
+<span class="font-label-sm text-[11px] mt-0.5">Сундуки</span>
+<!-- Notification ping -->
+<span class="absolute top-1 right-3 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<!-- Tab 4: Профиль / Зал Славы -->
+<button class="flex flex-col items-center py-1 px-3 rounded-xl text-on-surface-variant font-medium hover:text-on-surface transition-all" type="button">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-[11px] mt-0.5">Профиль</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+<!-- Lightweight Micro-Interactions (Vanilla JS for Game Feel) -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tactile sound & ripple feedback emulation on buttons
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if ('vibrate' in navigator) {
+            navigator.vibrate(12);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>
